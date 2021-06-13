@@ -1,0 +1,27 @@
+﻿@model Escuela
+
+@{
+    ViewData["Title"] = "Escuela Fuerza Corex VF";
+    Layout = "Simple";
+}
+
+<h1>Escuela</h1>
+<h2>Nombre: @Model.Nombre</h2>  
+<h2>Tipo Escuela: @Model.TipoEscuela</h2>
+
+<address>
+    <p>Dirección: @Model.Dirección</p>
+    <p>País: @Model.Pais</p>
+    <p>Ciudad: @Model.Ciudad</p>
+</address>
+
+<p><i>
+    @ViewData["Lamadre"]
+    </i></p>
+
+
+<p>
+    <strong>
+        Camino de las Obras:
+    </strong>
+</p>
