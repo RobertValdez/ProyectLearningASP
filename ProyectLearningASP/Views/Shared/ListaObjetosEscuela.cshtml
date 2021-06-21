@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<ObjetoEscuelaBase>*@
+
+@*<p>
+    Nombre: @Model.Nombre <br />
+    Id : @Model.UniqueId
+</p>*@
+
+
+
+<table>
+    <thead class="table table-dark table-hover">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in @Model)
+        {
+        <tr>
+            <td>@obj.Id</td>
+            <td>@obj.Nombre</td>
+        </tr>
+        }
+    </tbody>
+</table>

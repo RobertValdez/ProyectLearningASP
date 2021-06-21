@@ -11,19 +11,22 @@ namespace ProyectLearningASP.Controllers
     {
         public IActionResult MultiAsignatura()
         {
-            var listaAsignaturas = new List<Asignatura>(){
-                            new Asignatura{Nombre="Matemáticas", 
-                                UniqueId = Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Educación Física",
-                                UniqueId = Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Castellano",
-                                UniqueId = Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Ciencias Naturales",
-                                UniqueId = Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Programación",
-                                UniqueId = Guid.NewGuid().ToString()}
-                };
-            return View(listaAsignaturas);
+            //var listaAsignaturas = new List<Asignatura>(){
+            //                new Asignatura{Nombre="Matemáticas", 
+            //                    Id = Guid.NewGuid().ToString()},
+            //                new Asignatura{Nombre="Educación Física",
+            //                    Id = Guid.NewGuid().ToString()},
+            //                new Asignatura{Nombre="Castellano",
+            //                    Id = Guid.NewGuid().ToString()},
+            //                new Asignatura{Nombre="Ciencias Naturales",
+            //                    Id = Guid.NewGuid().ToString()},
+            //                new Asignatura{Nombre="Programación",
+            //                    Id = Guid.NewGuid().ToString()}
+            //    };
+
+            ViewBag.Fecha = DateTime.Now;
+            return View(_context.Asignaturas);
+            //return View(listaAsignaturas);
         }
         public IActionResult Index()
         {
@@ -33,14 +36,22 @@ namespace ProyectLearningASP.Controllers
             //    Nombre = "Programación"
             //};
 
-            //ViewBag.Lamadre = "JAJAJA";
-            //ViewBag.Fecha = DateTime.Now;
+          //  ViewBag.Lamadre = "JAJAJA";
+            ViewBag.Fecha = DateTime.Now;
 
-            return View(new Asignatura
-            {
-                Nombre = "Programación",
-                UniqueId = Guid.NewGuid().ToString()
-            });
+            return View(_context.Asignaturas.FirstOrDefault());
+
+            //return View(new Asignatura
+            //{
+            //    Nombre = "Programación",
+            //    Id = Guid.NewGuid().ToString()
+            //});
+        }
+
+        private EscuelaContext _context;
+        public AsignaturaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }

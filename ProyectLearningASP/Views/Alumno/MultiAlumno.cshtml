@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Alumno>
+
+@{
+    ViewData["Title"] = "Información de Alumno";
+    Layout = "Simple";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<strong> Desde La vista parcial</strong>
+
+<partial name="ListaObjetosEscuela" />
+
+@*@foreach(var alumno in @Model)
+    {
+        <partial name="ListaObjetoEscuela"/>
+    }*@
+
+@*<table>
+        <thead class="table table-dark table-hover">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alumno in @Model)
+            {
+            <tr>
+                <td>@alumno.UniqueId</td>
+                <td>@alumno.Nombre</td>
+            </tr>
+            }
+        </tbody>
+    </table>*@
+
+<p>
+    <i>
+        @ViewBag.Fecha
+    </i>
+</p>

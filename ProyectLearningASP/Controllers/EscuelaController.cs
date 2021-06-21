@@ -11,18 +11,25 @@ namespace ProyectLearningASP.Controllers
     {
         public IActionResult Index()
         {
-            var escuela = new Escuela();
-            escuela.UniqueId = Guid.NewGuid().ToString();
-            escuela.Nombre = "Corex VF Learning";
-            escuela.AñoDeCreación = 1950;
+            //var escuela = new Escuela();
+            //escuela.UniqueId = Guid.NewGuid().ToString();
+            //escuela.Nombre = "Corex VF Learning";
+            //escuela.AñoDeCreación = 1950;
 
-            escuela.Dirección = "Av Santo Domingo Sabio #6";
-            escuela.Ciudad = "Rodrigues Vela";
-            escuela.Pais = "Rep. Dom.";
+            //escuela.Dirección = "Av Santo Domingo Sabio #6";
+            //escuela.Ciudad = "Rodrigues Vela";
+            //escuela.Pais = "Rep. Dom.";
 
             ViewBag.Lamadre = "JAJAJA";
 
+            var escuela = _context.Escuelas.FirstOrDefault();
             return View(escuela);
+        }
+
+        private EscuelaContext _context;
+        public EscuelaController(EscuelaContext context)
+        {
+            _context = context;
         }
     }
 }
